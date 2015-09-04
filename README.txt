@@ -33,6 +33,7 @@ block =
 
 statement =
   ident ":=" expression
+  | "call" ident
   | "?" ident
   | "!" expression
   | "begin" statement {";" statement} "end"
