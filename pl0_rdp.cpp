@@ -36,3 +36,19 @@ typedef enum {
   exclamationsym,
   questionsym
 } Symbol;
+
+Symbol sym;
+void nextsym(void);
+void error(const char *msg);
+void block(void);
+void statement(void);
+void condition(void);
+void term(void);
+void factor(void);
+void expression(void);
+void expect(Symbol s);
+void accept(Symbol s);
+void program(void);
+
+static std::string IdentifierStr;
+static double NumVal;
