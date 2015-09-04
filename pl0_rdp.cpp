@@ -26,8 +26,6 @@ typedef enum {
   thensym,
   dosym,
   constsym,
-  dosym,
-  constsym,
   comma,
   varsym,
   procsym,
@@ -79,4 +77,15 @@ static int gettok()
     if (IdentifierStr == "do") return dosym;
   }
 
+
+  int ThisChar = getchar();
+  LastChar = getchar();
+  return ThisChar;
+}
+
+int main(void)
+{
+
+  printf("PARSE SUCCESS.\n");
+  return 0;
 }
