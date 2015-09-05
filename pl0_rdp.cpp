@@ -44,8 +44,8 @@ void condition(void);
 void term(void);
 void factor(void);
 void expression(void);
-void expect(Symbol s);
-void accept(Symbol s);
+int expect(Symbol s);
+int accept(Symbol s);
 void program(void);
 
 static std::string IdentifierStr;
@@ -177,3 +177,34 @@ void program(void)
 
 }
 
+void block(void)
+{
+
+}
+
+void statement(void)
+{}
+
+void condition(void)
+{}
+
+void expression(void)
+{}
+
+void term(void)
+{}
+
+void factor(void)
+{}
+
+int expect(Symbol s)
+{}
+
+int accept(Symbol s)
+{}
+
+void error(const char *msg)
+{
+  printf("ERROR: %s at %s:%d\n", msg, __FILE__, __LINE__);
+  exit(1);
+}
