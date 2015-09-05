@@ -96,7 +96,58 @@ static int gettok()
     return number;
   }
 
+  if (LastChar == EOF)
+    return tok_eof;
 
+  if (LastChar == '*') {
+    LastChar = getchar();
+    return times;
+  }
+
+  if (LastChar == ',') {
+    LastChar = getchar();
+    return comma;
+  }
+
+  if (LastChar == '!') {
+    LastChar = getchar();
+    return exclamationsym;
+  }
+
+  if (LastChar == '?') {
+    LastChar = getchar();
+    return questionsym;
+  }
+
+  if (LastChar == ';') {
+    LastChar = getchar();
+    return semicolon;
+  }
+
+  if (LastChar == '+') {
+    LastChar = getchar();
+    return plus;
+  }
+
+  if (LastChar == '.') {
+    return period;
+  }
+
+  if (LastChar == ':') {
+    LastChar = getchar();
+    if (LastChar == '=') {
+      LastChar = getchar();
+      return becomes;
+    }
+  }
+
+  if (LastChar == '<') {
+    LastChar = getchar();
+    if (LastChar == '=') {
+      LastChar = getchar();
+      return leq;
+    }
+  }
 
   int ThisChar = getchar();
   LastChar = getchar();
