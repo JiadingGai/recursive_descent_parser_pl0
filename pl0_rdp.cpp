@@ -75,7 +75,14 @@ static int gettok()
     if (IdentifierStr == "while") return whilesym;
     if (IdentifierStr == "then") return thensym;
     if (IdentifierStr == "do") return dosym;
+    if (IdentifierStr == "const") return constsym;
+    if (IdentifierStr == "var") return varsym;
+    if (IdentifierStr == "procedure") return procsym;
+    if (IdentifierStr == "odd") return oddsym;
+
+    return ident;
   }
+
 
 
   int ThisChar = getchar();
