@@ -200,10 +200,25 @@ void factor(void)
 {}
 
 int expect(Symbol s)
-{}
+{
+  if (accept(s)) {
+    return 1;
+  }
+
+  printf("\n     [%d(%c), but expects %d(%c)]\n", sym, sym, s, s);
+  error("[Expect] unexpected symbol.");
+  return 0;
+}
 
 int accept(Symbol s)
-{}
+{
+  if (sym == s) {
+    nextsym();
+    return 1;
+  }
+
+  return 0;
+}
 
 void error(const char *msg)
 {
