@@ -174,7 +174,9 @@ void nextsym(void)
 
 void program(void)
 {
-
+  nextsym();
+  block();
+  expect(period);
 }
 
 void block(void)
