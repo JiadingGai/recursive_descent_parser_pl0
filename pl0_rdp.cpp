@@ -83,6 +83,19 @@ static int gettok()
     return ident;
   }
 
+  //FIXME: not able to recognize numbers like .12345.
+  //       because of the conflict with program period.
+  if (isdigit(LastChar)/* || LastChar == '.'*/) {
+    std::string NumStr;
+    do {
+      NumStr += LastChar;
+      LastChar = getchar();
+    } while (isdigit(LastChar) || LastChar == '.');
+
+    NumVal = strtod(NumStr.c_str(), 0);
+    return number;
+  }
+
 
 
   int ThisChar = getchar();
