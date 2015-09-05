@@ -156,7 +156,24 @@ static int gettok()
 
 int main(void)
 {
-
+  program();
   printf("PARSE SUCCESS.\n");
   return 0;
 }
+
+static int CurTok;
+void nextsym(void)
+{
+  CurTok = gettok();
+
+#if _DEBUG
+  sym = static_cast<Symbol>(CurTok);
+  printf("[CurrentSymbol] %d\n", sym);
+#endif
+}
+
+void program(void)
+{
+
+}
+
