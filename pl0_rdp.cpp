@@ -241,7 +241,18 @@ void statement(void)
 
 void condition(void)
 {
-
+  if (accept(oddsym)) {
+    expression();
+  } else {
+    expression();
+    if (sym == eql || sym == neq || sym == lss || sym == leq || sym == gtr || sym == geq) {
+      nextsym();
+      expression();
+    } else {
+      error("CONDITION: invalid operator in void condition(void).");
+      nextsym();
+    }
+  }
 }
 
 void expression(void)
