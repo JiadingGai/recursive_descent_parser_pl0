@@ -181,23 +181,58 @@ void program(void)
 
 void block(void)
 {
+  if (accept(constsym)) {
+    do {
+      expect(ident);
+      expect(eql);
+      expect(number);
+    } while (accept(comma));
 
+    expect(semicolon);
+  }
+  
+  if (accept(varsym)) {
+    do {
+      expect(ident);
+    } while (accept(comma));
+
+    expect(semicolon);
+  }
+
+  while (accept(procsym)) {
+    expect(ident);
+    expect(semicolon);
+    block();
+    expect(semicolon);
+  }
+  
+  statement();
 }
 
 void statement(void)
-{}
+{
+
+}
 
 void condition(void)
-{}
+{
+
+}
 
 void expression(void)
-{}
+{
+
+}
 
 void term(void)
-{}
+{
+
+}
 
 void factor(void)
-{}
+{
+
+}
 
 int expect(Symbol s)
 {
