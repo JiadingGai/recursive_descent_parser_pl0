@@ -257,17 +257,40 @@ void condition(void)
 
 void expression(void)
 {
+  if (sym == plus || sym == minus) {
+    nextsym();
+  }
+  term();
 
+  while (sym == plus || sym == minus) {
+    nextsym();
+    term();
+  }
 }
 
 void term(void)
 {
-
+  factor();
+  while (sym == times || sym == slash) {
+    nextsym();
+    factor();
+  }
 }
 
 void factor(void)
 {
-
+  if (accept(ident)) {
+    ;
+  } else if (accept(number)) {
+    ;
+  } else if (accept(lparen)) {
+    nextsym();
+    expression();
+    expect(rparen);
+  } else {
+    error("FACTOR: syntax error in void factor(void).");
+    nextsym();
+  }
 }
 
 int expect(Symbol s)
