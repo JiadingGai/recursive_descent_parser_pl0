@@ -165,9 +165,9 @@ static int CurTok;
 void nextsym(void)
 {
   CurTok = gettok();
+  sym = static_cast<Symbol>(CurTok);
 
 #if _DEBUG
-  sym = static_cast<Symbol>(CurTok);
   printf("[CurrentSymbol] %d\n", sym);
 #endif
 }
@@ -217,7 +217,7 @@ void statement(void)
   } else if (accept(callsym)) {
     expect(ident);
   } else if (accept(exclamationsym)) {
-    expression();
+    expect(ident);
   } else if (accept(questionsym)) {
     expression();
   } else if (accept(beginsym)) {
