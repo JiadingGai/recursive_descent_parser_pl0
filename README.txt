@@ -34,7 +34,7 @@ block =
 statement =
   ident ":=" expression
   | "call" ident
-  | "?" ident
+  | "?" expression 
   | "!" expression
   | "begin" statement {";" statement} "end"
   | "if" condition "then" statement
