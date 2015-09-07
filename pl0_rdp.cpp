@@ -211,7 +211,32 @@ void block(void)
 
 void statement(void)
 {
-
+  if (accept(ident)) {
+    expect(becomes);
+    expression(); 
+  } else if (accept(callsym)) {
+    expect(ident);
+  } else if (accept(exclamationsym)) {
+    expression();
+  } else if (accept(questionsym)) {
+    expression();
+  } else if (accept(beginsym)) {
+    do {
+      statement();
+    } while (accept(semicolon));
+    expect(endsym);
+  } else if (accept(ifsym)) {
+    condition();
+    expect(thensym);
+    statement();
+  } else if (accept(whilesym)) {
+    condition();
+    expect(dosym);
+    statement();
+  } else {
+    error("STATEMENT: syntax error in void statement(void).\n");
+    nextsym();
+  }
 }
 
 void condition(void)
