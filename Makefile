@@ -7,6 +7,12 @@ pl0_parser : pl0_rdp.o
 %.o : %.cpp
 	g++ -c ${CFLAGS} ${CPPFLAGS} $< -o $@
 
-.PHONY=clean
+.PHONY=clean run
+
+run:
+	./${EXEC} < good.pl0
+
 clean:
 	rm -f pl0_parser pl0_rdp.o
+
+
